@@ -89,3 +89,73 @@ Use the following credentials to login into the application:
 
 # Author
 Harshith Kumar M
+
+
+# Manual Login Credential Setup
+
+The login credentials are stored manually in the SQL Server database.
+
+Before running the application, insert login credentials into the `Users` table.
+
+Follow the steps below carefully.
+
+---
+
+## Step 1 — Open SQL Server Management Studio (SSMS)
+
+- Open SQL Server Management Studio
+- Connect to your SQL Server instance
+
+Example:
+
+```text
+DESKTOP-XXXXXXX\SQLEXPRESS
+
+Step 2 — Create Database
+
+Execute:
+
+CREATE DATABASE BankDB;
+Step 3 — Use Database
+
+Execute:
+
+USE BankDB;
+Step 4 — Create Users Table
+
+Execute:
+
+CREATE TABLE Users
+(
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Username VARCHAR(50),
+    Password VARCHAR(50)
+);
+Step 5 — Insert Login Credentials
+
+Execute:
+
+INSERT INTO Users (Username, Password)
+VALUES ('admin', '1234');
+Step 6 — Verify Credentials
+
+Execute:
+
+SELECT * FROM Users;
+
+Expected Output:
+
+Id	Username	Password
+1	admin	1234
+
+Default Login Credentials
+Username	Password
+admin	1234
+
+Step 7 — Run Application
+Open project in Visual Studio
+Build Solution
+Press F5
+Login using:
+Username: admin
+Password: 1234
